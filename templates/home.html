@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>MerlinNikhil</title>
+        
+      </head>
+<body>
+    <!-- Sidebar with image -->
+        <div class="sidebar " style="width:40%">            
+        <img src='{{ profile.profile_picture.url }}' alt="Profile Image" >      
+        </div>
+
+    <!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+        <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Project</a>
+        <a href="#">Contact</a>
+        </div>
+        
+
+    <!-- Page Content -->
+    <div class="main" style="margin-left:40%">
+    <!-- Menu icon to open sidebar -->
+    <span class="menu-icon" onclick="openNav()">&#9776; </span>
+        <!-- Header -->
+        <header class="header" id="home">
+            <h1 >{{ profile.name }}</h1>
+            <p>{{ profile.intro }}.</p>
+            <a href="{% url 'download_resume' profile.id %}" class="button light-grey padding-large margin-top" download>
+            <i class="fa fa-download"></i> Download Resume</a>            
+        </header>
+
+        <!-- About Section -->
+        <div class="content justify text-grey padding-32" id="about">
+            <h2>About</h2>
+            <hr class="opacity">
+            <p>{{ aboutme.content }}</p>        
+        
+
+        <h2 class="w3-padding-16">My Skills</h2>
+        <hr class="opacity">
+
+        {% for skill in skills %}
+        <p>{{ skill.name }}</p>
+        <div class="light-grey">
+            <div style="width: {{ skill.percentage }}%;" class="container center padding-small dark-grey">{{ skill.percentage }}%</div> </div>
+        {% endfor %}
+    
+ 
+    <br>
+    <!-- Experience Section -->
+    <h2 class="padding-24">My Experience</h2>
+    <hr class="opacity">
+    <ul class="timeline">
+        {% for exp in experience %}
+            <li>
+                <div class="timeline-content">
+                    <h4>{{ exp.company }}</h4>
+                    <p>{{ exp.role }}</p>
+                    <p>{{ exp.period }}</p>
+                </div>
+            </li><br>
+        {% endfor %}
+    </ul>
+    
+
+
+  
+
+    <h2 class="padding-24">My projects</h2>
+    <hr class="opacity">
+    
+      {% for project in projects %}
+      
+      <div class="containerp">
+        <img src='{{ project.project_image.url }}' alt="Avatar" class="image" style="width:100%">
+        <div class="text">{{ project.title }}</div>
+        <div class="overlay">
+          
+          <p><a class="buttonp" href="{% url 'project_details' project.id %}">More..</a></p>
+  
+           </div>
+      </div>
+      <br>
+
+      {% endfor %}
+      
+
+    
+     
+<!-- Contact Section -->
+<div class="padding-32 content text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="opacity">
+ 
+            
+            <p>Email: {{ contact.email }}</p>
+            <p>LinkedIn: {{ contact.linkedin }}</p>
+            
+   
+  </div>  
+  <!-- Footer -->
+  <footer class="container1 padding-64 light-grey textcenter opacity xlarge " style="margin:-24px">
+    
+    <p class="medium">"Strive for progress, not perfection. Every step forward is a victory in your journey. Stay inspired, stay focused, and let your success speak for itself."</p>
+  <p class="medium">© 2024 Merlin Nikhil</p>
+  <!-- End footer -->
+  </footer>
+    </div>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "60%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    
+
+function viewDetails(projectId) {
+    // Redirect to the new HTML page with additional project details
+    window.location.href = '/project-details/' + projectId; // Adjust the URL path as needed
+  }
+</script>
+
+</body>
+
+</html>

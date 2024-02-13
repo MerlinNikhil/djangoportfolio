@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/projectStyles.css' %}">
+    <title>{{ project.title }} Details</title>
+    <!-- Add any necessary styles or links for the project details page -->
+    
+</head>
+<body>
+    <h2>{{ project.title }} Details</h2>
+    
+    <div class="details-section">
+        <h3>Project Lifecycle</h3>
+        <p>{{ project.lifecycle }}</p>
+    </div>
+
+    <div class="details-section">
+        <h3>Technologies Used</h3>
+        <p>{{ project.technologies }}</p>
+    </div>
+
+    <div class="details-section">
+        <h3>Version Control</h3>
+        <p>{{ project.versionControl }}</p>
+    </div>
+
+    <div class="details-section">
+        <h3>GitHub Repository</h3>
+        <p><button class="buttonp" onclick="openGitHub('{{ project.github_url }}')">Visit GitHub</button></p>
+    </div>
+
+    <script>
+        function openGitHub(repoUrl) {
+            if (repoUrl) {
+                // Open the GitHub repository in a new tab or window
+                window.open(repoUrl, '_blank');
+            } else {
+                // Handle the case where the GitHub URL is not available
+                alert("GitHub repository URL not provided.");
+            }
+        }
+    </script>
+</body>
+</html>
