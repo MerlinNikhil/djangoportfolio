@@ -19,10 +19,11 @@
     <!-- Hidden Sidebar (reveals when clicked on menu icon)-->
         <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Project</a>
-        <a href="#">Contact</a>
+        <a href="#home"class="" onclick="closeNav()">Home</a>
+        <a href="#about"class="" onclick="closeNav()">About</a>        
+        <a href="#experience"class="" onclick="closeNav()">Experience</a>
+        <a href="#education" class="" onclick="closeNav()">Education</a>
+        <a href="#contact"class="" onclick="closeNav()">Contact</a>
         </div>
         
 
@@ -35,7 +36,7 @@
             <h1 >{{ profile.name }}</h1>
             <p>{{ profile.intro }}.</p>
             <a href="{% url 'download_resume' profile.id %}" class="button light-grey padding-large margin-top" download>
-            <i class="fa fa-download"></i> Download Resume</a>            
+            <i class="fa fa-download"></i> Resume</a>            
         </header>
 
         <!-- About Section -->
@@ -44,6 +45,8 @@
             <hr class="opacity">
             <p>{{ aboutme.content }}</p>        
         
+            
+      
 
         <h2 class="w3-padding-16">My Skills</h2>
         <hr class="opacity">
@@ -56,26 +59,8 @@
     
  
     <br>
-    <!-- Experience Section -->
-    <h2 class="padding-24">My Experience</h2>
-    <hr class="opacity">
-    <ul class="timeline">
-        {% for exp in experience %}
-            <li>
-                <div class="timeline-content">
-                    <h4>{{ exp.company }}</h4>
-                    <p>{{ exp.role }}</p>
-                    <p>{{ exp.period }}</p>
-                </div>
-            </li><br>
-        {% endfor %}
-    </ul>
-    
-
-
-  
-
-    <h2 class="padding-24">My projects</h2>
+    <div id="projects" class="padding-24"></div>
+    <h2>My projects</h2>
     <hr class="opacity">
     
       {% for project in projects %}
@@ -92,7 +77,43 @@
       <br>
 
       {% endfor %}
-      
+   
+    <!-- Experience Section -->
+    <div id="experience" class="padding-24">
+    <h2>My Experience</h2>
+    <hr class="opacity">
+    <ul class="timeline">
+        {% for exp in experience %}
+            <li>
+                <div class="timeline-content">
+                    <h4>{{ exp.company }}</h4>
+                    <p>{{ exp.role }}</p>
+                    <p>{{ exp.period }}</p>
+                </div>
+            </li><br>
+        {% endfor %}
+    </ul>
+    
+    <!-- Education Section -->
+<div id="education" class="padding-24">
+  <h2>My Education</h2>
+  <hr class="opacity">
+  <ul class="timeline">
+      {% for edu in education %}
+          <li>
+              <div class="timeline-content">
+                  <h4>{{ edu.institution }}</h4>
+                  <p>{{ edu.degree }}</p>
+                  <p>{{ edu.graduation_year }}</p>
+              </div>
+          </li><br>
+      {% endfor %}
+  </ul>
+</div>
+
+  
+</div>
+    
 
     
      
@@ -108,7 +129,7 @@
    
   </div>  
   <!-- Footer -->
-  <footer class="container1 padding-64 light-grey textcenter opacity xlarge " style="margin:-24px">
+  <footer class="container1 padding-64 light-grey textcenter  xlarge " style="margin:-24px">
     
     <p class="medium">"Strive for progress, not perfection. Every step forward is a victory in your journey. Stay inspired, stay focused, and let your success speak for itself."</p>
   <p class="medium">© 2024 Merlin Nikhil</p>

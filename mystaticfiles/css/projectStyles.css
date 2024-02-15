@@ -1,9 +1,29 @@
+/* Additional styling for the carousel */
+.row{
+    
+    text-align: center;    
+    
+}
+
+.carousel {
+    max-width: 800px;
+    margin: auto;
+}
+
+.carousel-inner {
+    max-height: 400px; 
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 8px; 
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
-    margin: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    
 }
 
 h2 {
@@ -30,5 +50,36 @@ h2 {
 .buttonp:hover {
     background-color: #000;
 }
+.flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+.padding-64{padding-top:64px!important;padding-bottom:64px!important}
+.light-grey{color:#000!important;background-color:#f1f1f1!important} 
+.textcenter{padding-left:25px;display:inline-block;}
+.opacity{opacity:0.40}
+.xlarge{text-align: center;}
+.medium{font-size:15px!important; }
 
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
 
+    h2 {
+        font-size: 24px;
+    }
+
+    .details-section {
+        margin-bottom: 10px;
+    }
+
+    .details-section p {
+        margin-bottom: 5px;
+    }
+
+    .buttonp {
+        padding: 8px 16px;
+    }
+}

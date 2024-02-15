@@ -17,6 +17,8 @@ class AboutMe(models.Model):
 class Projects (models.Model):
     title = models.CharField(max_length=255)
     project_image=models.ImageField(upload_to='proj_pics/')
+    project_image1=models.ImageField(upload_to='proj_pics/')
+    project_image2=models.ImageField(upload_to='proj_pics/')    
     github_url = models.URLField()
     lifecycle=models.CharField(max_length=500)
     technologies=models.CharField(max_length=500)
