@@ -1,8 +1,8 @@
 /* Additional styling for the carousel */
 .row{
-    
-    text-align: center;    
-    
+
+    text-align: center;
+
 }
 
 .carousel {
@@ -11,23 +11,26 @@
 }
 
 .carousel-inner {
-    max-height: 400px; 
+    max-height: 400px;
     overflow: hidden;
 }
 
 .carousel-item img {
     width: 100%;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 
 body {
     font-family: 'Arial', sans-serif;
-    
+
 }
 
-h2 {
-    color: #333;
+.row h2 {
+    color: #757575;
+}
+.details-section h3 {
+    color: #757575;
 }
 
 .details-section {
@@ -36,6 +39,7 @@ h2 {
 
 .details-section p {
     margin-bottom: 10px;
+    color: #757575;
 }
 
 .buttonp {
@@ -54,9 +58,9 @@ h2 {
     display: flex;
     flex-direction: row;
   }
-  
+
 .padding-64{padding-top:64px!important;padding-bottom:64px!important}
-.light-grey{color:#000!important;background-color:#f1f1f1!important} 
+.light-grey{color:#000!important;background-color:#f1f1f1!important}
 .textcenter{padding-left:25px;display:inline-block;}
 .opacity{opacity:0.40}
 .xlarge{text-align: center;}
